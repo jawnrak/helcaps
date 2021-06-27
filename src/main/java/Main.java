@@ -33,13 +33,13 @@ public class Main {
 
     public static void loop(Bedrijf bedrijf){
         switch (Login.getInstance().getLoggedInUser().printMenu().get(printMenu() - 1)) {
-            case "Voeg een product toe" -> productToevoegen(bedrijf);
-            case "Print inventaris van een locatie" -> locatieInventaris(bedrijf);
-            case "Winst-verlies schema per maand" -> winstVerliesMaand(bedrijf);
-            case "Winst-verlies schema per jaar" -> winstVerliesJaar(bedrijf);
-            case "Verkocht product" -> verkochtProduct(bedrijf);
-            case "Kenmerk opzoeken" -> kenmerkOpzoeken(bedrijf);
-            case "Aantal verkochtte producten in de maand" -> aantalVerkochtteProducten(bedrijf);
+            case "Voeg een product toe" : productToevoegen(bedrijf); break;
+            case "Print inventaris van een locatie" : locatieInventaris(bedrijf); break;
+            case "Winst-verlies schema per maand" : winstVerliesMaand(bedrijf); break;
+            case "Winst-verlies schema per jaar" : winstVerliesJaar(bedrijf); break;
+            case "Verkocht product" : verkochtProduct(bedrijf); break;
+            case "Kenmerk opzoeken" : kenmerkOpzoeken(bedrijf); break;
+            case "Aantal verkochtte producten in de maand" : aantalVerkochtteProducten(bedrijf); break;
         }
 
     }
