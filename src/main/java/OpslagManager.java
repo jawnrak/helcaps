@@ -27,7 +27,7 @@ public class OpslagManager {
         }
 
         for(Product pr : opslaglocatie.getVerkocht()){
-            if(pr.getProductcode().equals(productZoek)){
+            if(pr.getProductcode().toString().equals(productZoek)){
                 return;
             }
         }
