@@ -8,10 +8,10 @@ public class Main {
 
     public static void main(String[] args) {
         Bedrijf bedrijf = Login.getInstance().getBedrijf();
-        bedrijf.getFromLocatie("Woonkamer").getOpslag().add(new Product("Air jordan 1 mid black red", "Air Jordan", "Zwart rood", "55232", 2, 160.00, 200.00));
-        bedrijf.getFromLocatie("Woonkamer").getOpslag().add(new Product("Air Force 1 tripple black", "Nike", "Zwart", "98122", 3, 100.00, 125.00));
-        bedrijf.getFromLocatie("Zolder").getOpslag().add(new Product("Adidas boost 4.0 tripple white", "Adidas", "Wit", "44110", 4, 180.00, 225.00));
-        bedrijf.getFromLocatie("Slaapkamer").getOpslag().add(new Product("Yeezy Boost Beluga", "Yeezy", "Grijs", "94222", 6, 220.00, 250.00));
+        bedrijf.getFromLocatie("Woonkamer").getOpslag().add(new Product(new ProductKenmerken("Air jordan 1 mid black red", "Air Jordan", "Zwart rood"), 2, new ProductPrijzen(160.00, 200.00)));
+        bedrijf.getFromLocatie("Woonkamer").getOpslag().add(new Product(new ProductKenmerken("Air Force 1 tripple black", "Nike", "Zwart"), 3, new ProductPrijzen(100.00, 125.00)));
+        bedrijf.getFromLocatie("Zolder").getOpslag().add(new Product(new ProductKenmerken("Adidas boost 4.0 tripple white", "Adidas", "Wit"), 4, new ProductPrijzen(180.00, 225.00)));
+        bedrijf.getFromLocatie("Slaapkamer").getOpslag().add(new Product(new ProductKenmerken("Yeezy Boost Beluga", "Yeezy", "Grijs"), 6, new ProductPrijzen(220.00, 250.00)));
 
         while(Login.getInstance().isAuthenticated()){
             loop(bedrijf);
@@ -52,8 +52,6 @@ public class Main {
         String merk = sc.nextLine();
         System.out.print("Typ de kleur van het product in: ");
         String kleur = sc.nextLine();
-        System.out.print("Typ de productcode van het product in: ");
-        String productcode = sc.nextLine();
         System.out.print("Voer de aantal in: ");
         Integer aantal = sc.nextInt();
         System.out.print("Wat is de inkoopprijs: ");
@@ -63,7 +61,7 @@ public class Main {
         String locatie = locatieMenu();
         if(locatie != null) {
             Opslaglocatie opslaglocatie = bedrijf.getFromLocatie(locatie);
-            opslaglocatie.getOpslag().add(new Product(naam, merk, kleur, productcode, aantal, inkoopprijs, verkoopprijs));
+            opslaglocatie.getOpslag().add(new Product(new ProductKenmerken(naam, merk, kleur), aantal, new ProductPrijzen(inkoopprijs, verkoopprijs)));
         }
 
 
@@ -135,19 +133,19 @@ public class Main {
             for (Product product : oL.getOpslag()) {
                 switch ((keuze)){
                     case 1:
-                        if (product.getNaam().contains(waarde)){
+                        if (product.getKenmerken().getNaam().contains(waarde)){
                             result.add(product.toString() + oL.getLocatie());
                         }
                     case 2:
-                        if (product.getMerk().contains(waarde)){
+                        if (product.getKenmerken().getMerk().contains(waarde)){
                             result.add(product.toString() + oL.getLocatie());
                         }
                     case 3:
-                        if (product.getKleur().contains(waarde)){
+                        if (product.getKenmerken().getKleur().contains(waarde)){
                             result.add(product.toString() + oL.getLocatie());
                         }
                     case 4:
-                        if (product.getProductcode().equals(waarde)){
+                        if (product.getProductcode().toString().equals(waarde)){
                             result.add(product.toString() + oL.getLocatie());
                         }
                 }

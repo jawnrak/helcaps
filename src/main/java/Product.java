@@ -2,34 +2,29 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Product {
-    private String naam;
-    private String merk;
-    private String kleur;
-    private String productcode;
+    private ProductKenmerken kenmerken;
+    private static Integer lastProductcode = 10000;
+    private Integer productcode;
     private Integer aantal; //kan wijzigen hoeveel
     private Integer aantalVerkocht = 0;
+    private ProductPrijzen prijzen;
     private Integer jaar;
     private Integer maand;
-    private Double inkoopprijs;
-    private Double verkoopprijs;
 
 
-    public Product(String naam, String merk, String kleur, String productcode, Integer aantal, Double inkoopprijs, Double verkoopprijs) {
-        this.naam = naam;
-        this.merk = merk;
-        this.kleur = kleur;
-        this.productcode = productcode;
+    public Product(ProductKenmerken kenmerken, Integer aantal, ProductPrijzen prijzen) {
+        this.kenmerken=kenmerken;
+        this.productcode = lastProductcode++;
         this.aantal = aantal;
         this.jaar = LocalDateTime.now().getYear();
         this.maand = LocalDateTime.now().getMonth().getValue();
-        this.inkoopprijs = inkoopprijs;
-        this.verkoopprijs = verkoopprijs;
+        this.prijzen=prijzen;
     }
 
 
     @Override
     public String toString() {
-        return naam + " | " + merk + " | " + kleur + " | " + productcode + "\naantal: " + aantal + "\nlocatie: ";
+        return kenmerken.toString() + " | " + productcode + "\naantal: " + aantal + "\nlocatie: ";
     }
 
     public Integer getAantal() {
@@ -40,19 +35,9 @@ public class Product {
         return aantalVerkocht;
     }
 
-    public String getNaam() {
-        return naam;
-    }
+    public ProductKenmerken getKenmerken() { return kenmerken; }
 
-    public String getMerk() {
-        return merk;
-    }
-
-    public String getKleur() {
-        return kleur;
-    }
-
-    public String getProductcode() {
+    public Integer getProductcode() {
         return productcode;
     }
 
@@ -64,13 +49,7 @@ public class Product {
         return maand;
     }
 
-    public Double getInkoopprijs() {
-        return inkoopprijs;
-    }
-
-    public Double getVerkoopprijs() {
-        return verkoopprijs;
-    }
+    public ProductPrijzen getPrijzen() { return prijzen; }
 
     public void setDate(LocalDate date){
         this.jaar = date.getYear();
