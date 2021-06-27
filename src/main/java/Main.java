@@ -117,13 +117,12 @@ public class Main {
     }
 
     private static void kenmerkOpzoeken(Bedrijf bedrijf){
-        System.out.println("""
-                Welk kenmerk wil je opzoeken?
-                1) Naam
-                2) Merk
-                3) Kleur
-                4) Productcode
-                Invoer:\s""");
+        System.out.println("Welk kenmerk wil je opzoeken?\n" +
+                           "1) Naam\n" +
+                           "2) Merk\n" +
+                           "3) Kleur\n" +
+                           "4) Productcode\n" +
+                           "Invoer: ");
         int keuze = sc.nextInt();
         sc.nextLine();
         System.out.println("Waarde: ");
@@ -170,12 +169,10 @@ public class Main {
     }
 
     private static String locatieMenu() {
-        System.out.print("""
-                Kies op welk locatie het product is:\s
-                1) Zolder\s
-                2) Woonkamer\s
-                3) Slaapkamer\s
-                """);
+        System.out.print("Kies op welk locatie het product is: \n" +
+                         "1) Zolder \n" +
+                         "2) Woonkamer \n" +
+                         "3) Slaapkamer \n");
         int getal = sc.nextInt();
         return getal == 1 ? "zolder" : getal == 2 ? "woonkamer" : getal == 3 ? "slaapkamer" : null;
     }
