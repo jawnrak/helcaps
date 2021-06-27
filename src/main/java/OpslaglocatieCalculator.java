@@ -8,7 +8,7 @@ public class OpslaglocatieCalculator {
 
 
     public Double berekenWinstMaand(int maand, int jaar){
-        Double result = 0D;
+        double result = 0D;
 
         for(Product p : opslaglocatie.getVerkocht()){
             if(p.getMaand()==maand && p.getJaar() == jaar){
@@ -20,7 +20,7 @@ public class OpslaglocatieCalculator {
     }
 
     public Double berekenWinstJaar(int jaar){
-        Double result = 0D;
+        double result = 0D;
         for(Product p : opslaglocatie.getVerkocht()){
             if(p.getJaar()==jaar){
                 result += (p.getVerkoopprijs() - p.getInkoopprijs()) * p.getAantalVerkocht();

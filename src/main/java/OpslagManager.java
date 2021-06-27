@@ -17,7 +17,7 @@ public class OpslagManager {
         return null;
     }
 
-    public void verkoop(String productZoek, Double verkoopprijs, LocalDate date){
+    public void verkoop(String productZoek, LocalDate date){
         Product p = getProductBijCode(productZoek, opslaglocatie.getOpslag());
         p.setDate(date);
         p.EentjeVerkocht();
@@ -25,8 +25,6 @@ public class OpslagManager {
         if (p.getAantal()== 0) {
             opslaglocatie.getOpslag().remove(p);
         }
-
-        p.setVerkoopprijs(verkoopprijs);
 
         for(Product pr : opslaglocatie.getVerkocht()){
             if(pr.getProductcode().equals(productZoek)){

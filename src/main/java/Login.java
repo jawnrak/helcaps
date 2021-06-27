@@ -16,10 +16,6 @@ public class Login {
         this.bedrijf = new Bedrijf();
     }
 
-    private ArrayList<Werknemer> getWerknemer () {
-        return werknemers;
-    }
-
     public static Login getInstance(){
 
         if (singleton == null){

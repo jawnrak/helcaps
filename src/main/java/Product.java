@@ -11,10 +11,10 @@ public class Product {
     private Integer jaar;
     private Integer maand;
     private Double inkoopprijs;
-    private Double verkoopprijs =0D;
+    private Double verkoopprijs;
 
 
-    public Product(String naam, String merk, String kleur, String productcode, Integer aantal, Double prijs) {
+    public Product(String naam, String merk, String kleur, String productcode, Integer aantal, Double inkoopprijs, Double verkoopprijs) {
         this.naam = naam;
         this.merk = merk;
         this.kleur = kleur;
@@ -22,7 +22,8 @@ public class Product {
         this.aantal = aantal;
         this.jaar = LocalDateTime.now().getYear();
         this.maand = LocalDateTime.now().getMonth().getValue();
-        this.inkoopprijs = prijs;
+        this.inkoopprijs = inkoopprijs;
+        this.verkoopprijs = verkoopprijs;
     }
 
 
@@ -37,10 +38,6 @@ public class Product {
 
     public Integer getAantalVerkocht() {
         return aantalVerkocht;
-    }
-
-    public void setAantal(Integer aantal) {
-        this.aantal = aantal;
     }
 
     public String getNaam() {
@@ -73,10 +70,6 @@ public class Product {
 
     public Double getVerkoopprijs() {
         return verkoopprijs;
-    }
-
-    public void setVerkoopprijs(Double verkoopprijs) {
-        this.verkoopprijs = verkoopprijs;
     }
 
     public void setDate(LocalDate date){

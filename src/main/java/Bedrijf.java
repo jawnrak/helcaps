@@ -22,29 +22,4 @@ public class Bedrijf {
         }
         return null;
     }
-
-//    public boolean toegangOpslaglocatie(String inlog, String wachtwo) {
-//        for (Werknemer toe : Werknemer.accounts) {
-//            if (inlog.equals(toe.getInlognaam()) && wachtwo.equals(toe.getWachtwoord())) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-//    public boolean toegangWinstVerlies (String inlog, String wachtwo){
-//        for (Werknemer toe : Werknemer.accounts) {
-//            if (inlog.equals(toe.getInlognaam()) && wachtwo.equals(toe.getWachtwoord())) {
-//                if (inlog.equals("Administrator") || inlog.equals("BoekhouderWerker")) {
-//                    return true;
-//                }
-//            }
-//        }
-//        return false;
-//    }
-
-//    public ArrayList<Werknemer> getAccounts() {
-//        return Werknemer.accounts;
-//    }
-
-
 }
