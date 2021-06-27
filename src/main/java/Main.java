@@ -172,7 +172,7 @@ public class Main {
         System.out.print("Kies op welk locatie het product is: \n" +
                          "1) Zolder \n" +
                          "2) Woonkamer \n" +
-                         "3) Slaapkamer \n");
+                         "3) Slaapkamer \n"); 
         int getal = sc.nextInt();
         return getal == 1 ? "zolder" : getal == 2 ? "woonkamer" : getal == 3 ? "slaapkamer" : null;
     }
