@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
         Bedrijf bedrijf = Login.getInstance().getBedrijf();
-        bedrijf.getFromLocatie("Woonkamer").getOpslag().add(new Product(new ProductKenmerken("Air jordan 1 mid black red", "Air Jordan", "Zwart rood"), 2, new ProductPrijzen(160.00, 200.00)));
+        bedrijf.getFromLocatie("Woonkamer").getOpslag().add(new Product(new ProductKenmerken("Air Jordan 1 mid black red", "Air Jordan", "Zwart rood"), 2, new ProductPrijzen(160.00, 200.00)));
         bedrijf.getFromLocatie("Woonkamer").getOpslag().add(new Product(new ProductKenmerken("Air Force 1 tripple black", "Nike", "Zwart"), 3, new ProductPrijzen(100.00, 125.00)));
         bedrijf.getFromLocatie("Zolder").getOpslag().add(new Product(new ProductKenmerken("Adidas boost 4.0 tripple white", "Adidas", "Wit"), 4, new ProductPrijzen(180.00, 225.00)));
         bedrijf.getFromLocatie("Slaapkamer").getOpslag().add(new Product(new ProductKenmerken("Yeezy Boost Beluga", "Yeezy", "Grijs"), 6, new ProductPrijzen(220.00, 250.00)));
@@ -47,6 +47,7 @@ public class Main {
 
     private static void productToevoegen(Bedrijf bedrijf) {
         System.out.print("Typ de naam van het product in: ");
+        sc.nextLine();
         String naam = sc.nextLine();
         System.out.print("Typ het merk van het product in: ");
         String merk = sc.nextLine();
@@ -72,7 +73,7 @@ public class Main {
             Opslaglocatie opslaglocatie = bedrijf.getFromLocatie(locatie);
             for(Product pro : opslaglocatie.getOpslag()){
                 if (pro != null) {
-                    System.out.println(pro.toString());
+                    System.out.println(pro + opslaglocatie.getLocatie());
                 }
             }
         }
@@ -134,19 +135,19 @@ public class Main {
                     case 1:
                         if (product.getKenmerken().getNaam().contains(waarde)){
                             result.add(product.toString() + oL.getLocatie());
-                        }
+                        } break;
                     case 2:
                         if (product.getKenmerken().getMerk().contains(waarde)){
                             result.add(product.toString() + oL.getLocatie());
-                        }
+                        } break;
                     case 3:
                         if (product.getKenmerken().getKleur().contains(waarde)){
                             result.add(product.toString() + oL.getLocatie());
-                        }
+                        } break;
                     case 4:
                         if (product.getProductcode().toString().equals(waarde)){
                             result.add(product.toString() + oL.getLocatie());
-                        }
+                        } break;
                 }
             }
 

@@ -10,7 +10,7 @@ public class OpslagManager {
 
     public Product getProductBijCode(String productcode, ArrayList<Product> lijst){
         for (Product product : lijst) {
-            if (product.getProductcode().equals(productcode)){
+            if (product.getProductcode().toString().equals(productcode)){
                 return product;
             }
         }
@@ -19,6 +19,10 @@ public class OpslagManager {
 
     public void verkoop(String productZoek, LocalDate date){
         Product p = getProductBijCode(productZoek, opslaglocatie.getOpslag());
+        if (p == null){
+            System.out.println("Product niet gevonden");
+            return;
+        }
         p.setDate(date);
         p.EentjeVerkocht();
 
