@@ -12,7 +12,7 @@ public class OpslaglocatieCalculator {
 
         for(Product p : opslaglocatie.getVerkocht()){
             if(p.getMaand()==maand && p.getJaar() == jaar){
-                result += (p.getVerkoopprijs() - p.getInkoopprijs()) * p.getAantalVerkocht();
+                result += (p.getPrijzen().getVerkoopprijs() - p.getPrijzen().getInkoopprijs()) * p.getAantalVerkocht();
                 //product verkoopt altijd voor zelfde prijs
             }
         }
@@ -23,7 +23,7 @@ public class OpslaglocatieCalculator {
         double result = 0D;
         for(Product p : opslaglocatie.getVerkocht()){
             if(p.getJaar()==jaar){
-                result += (p.getVerkoopprijs() - p.getInkoopprijs()) * p.getAantalVerkocht();
+                result += (p.getPrijzen().getVerkoopprijs() - p.getPrijzen().getInkoopprijs()) * p.getAantalVerkocht();
             }
         }
         return result;
